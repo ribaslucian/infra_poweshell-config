@@ -1,0 +1,85 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "final_space": true,
+  "version": 2,
+  "blocks": [
+    {
+      "alignment": "left",
+      "type": "prompt",
+      "segments": [
+        {
+          "foreground": "#00d0ff",
+          "style": "plain",
+          "template": "<#757575,>┌</>  {{.UserName}}  ",
+          "type": "session"
+        },
+        {
+          "properties": {
+            "style": "folder"
+          },
+          "foreground": "#FFBD00",
+          "style": "plain",
+          "template": "󱞊 {{ .Path }} ",
+          "type": "path"
+        },
+        {
+          "foreground": "#17d13c",
+          "properties": {
+            "branch_icon": ""
+          },
+          "style": "powerline",
+          "template": " {{ .UpstreamIcon }}{{ .HEAD }}  ",
+          "type": "git"
+        },
+        {
+          "type": "kubectl",
+          "style": "powerline",
+          "foreground": "#a91ccd",
+          "template": "󱃾 {{ .Context }}{{ if .Namespace }}/{{ .Namespace }}{{ end }}  "
+        },
+        {
+            "foreground": "#757575",
+          "style": "diamond",
+          "template": " {{ round .PhysicalPercentUsed .Precision }}% ",
+          "type": "sysinfo"
+        },
+        {
+          "foreground": "#757575",
+          "style": "plain",
+          "template": " {{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1000000000.0) }}/{{ (div .PhysicalTotalMemory 1000000000.0) }}GB  ",
+          "type": "sysinfo"
+        },
+        {
+          "type": "executiontime",
+          "style": "powerline",
+          "foreground": "#757575",
+          "template": " {{ .FormattedMs }} ",
+          "properties": {
+            "threshold": 500,
+            "style": "austin",
+            "always_enabled": true
+          }
+        }
+      ]
+    },
+    {
+      "alignment": "left",
+      "type": "prompt",
+      "newline": true,
+      "segments": [
+        {
+          "foreground": "#757575",
+          "style": "plain",
+          "template": "└ ",
+          "type": "text"
+        },
+        {
+          "foreground": "#ffffff",
+          "style": "plain",
+          "template": "$",
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}

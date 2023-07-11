@@ -8,43 +8,48 @@ blocks:
     segments:
       - foreground: "#FFBD00"
         style: plain
-        template: "<#757575,>\u250c</>  {{.UserName}}  "
+        template: "<#757575,>\u250c</> \uf2bd {{.UserName}}  "
         type: session
 
       - # foreground: #56B6C2
         properties:
           style: folder
         style: plain
-        template: " {{ .Path }}  "
+        template: "󱞊 {{ .Path }} "
         type: path
 
       - properties:
           branch_icon: ''
-          branch_max_length: 25
-          fetch_stash_count: true
-          fetch_status: true
-          fetch_upstream_icon: true
         style: powerline
-        template: "{{ .UpstreamIcon }}{{ .HEAD }}  "
+        template: "\ue725 {{ .UpstreamIcon }}{{ .HEAD }}  "
         type: git
 
-  - alignment: right
-    type: prompt
-    segments:
+  # - alignment: right
+  #   type: prompt
+  #   segments:
       - type: kubectl
         style: powerline
         foreground: #000000
-        template: "☸️{{ .Context }}{{ if .Namespace }}/{{ .Namespace }}{{ end }}  "
+        template: "󱃾 {{ .Context }}{{ if .Namespace }}/{{ .Namespace }}{{ end }}  "
 
       - foreground: "#94ffa2"
         style: diamond
-        template: "<#ffffff> </>{{ round .PhysicalPercentUsed .Precision }}% "
+        template: "<#ffffff>\uf4bc</> {{ round .PhysicalPercentUsed .Precision }}% "
         type: sysinfo
 
-      - style: diamond
-        template: "{{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64)
-          1000000000.0) }}/{{ (div .PhysicalTotalMemory 1000000000.0) }}GB"
+      - style: plain
+        template: "\ue266 {{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64)
+          1000000000.0) }}/{{ (div .PhysicalTotalMemory 1000000000.0) }}GB  "
         type: sysinfo
+
+      - type: executiontime
+        style: powerline
+        foreground: "#ffffff"
+        template: "<#fefefe></> {{ .FormattedMs }} "
+        properties:
+          threshold: 500
+          style: austin
+          always_enabled: true
 
 
   - alignment: left
