@@ -27,7 +27,7 @@ $ oh-my-posh font install
 - Ajustar arquivo profile do powershell para carregar as configurações do arquivo personalizado:
 C:\Users\lucia\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
 >>
-. "C:\TIC\env\my-env-configs\powershell-profile.ps1"
+. "C:\TIC\env\poweshell-config\powershell-profile.ps1"
 
 
 

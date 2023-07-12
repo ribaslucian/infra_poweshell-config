@@ -28,8 +28,20 @@ function kc {
     kubectl config get-contexts
 }
 
-Set-Alias vim nvim
+
 Set-Alias g git
+function gs { git status }
+function ga { git add . }
+function gp { git push }
+function gpl { git pull }
+
+function gitc {
+    & git commit $args
+}
+Set-Alias gco gitc
+
+Set-Alias l ls
+Set-Alias vim nvim
 Set-Alias grep findstr
 Set-Alias k kubectl
 Set-Alias tig "C:\Program Files\Git\bin\tig.exe"
@@ -38,4 +50,18 @@ Set-Alias tail "C:\Program Files\Git\usr\bin\less.exe"
 # Set-Alias tail "C:\TIC\.sources\Git\usr\bin\less.exe" 
 
 
-oh-my-posh init pwsh --config 'C:\TIC\env\my-env-configs\oh-my-posh-theme.json' | Invoke-Expression
+oh-my-posh init pwsh --config 'C:\TIC\env\poweshell-config\oh-my-posh-theme.json' | Invoke-Expression
+
+
+function ./ {
+    param(
+        [Parameter(Mandatory=$true, Position=0)]
+        [string]$ScriptPath,
+
+        [Parameter(Position=1, ValueFromRemainingArguments=$true)]
+        [string[]]$Arguments
+    )
+
+    $command = "bash.exe -c `"$ScriptPath`" $Arguments"
+    Invoke-Expression $command
+}
