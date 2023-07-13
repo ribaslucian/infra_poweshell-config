@@ -6,6 +6,7 @@
     {
       "alignment": "left",
       "type": "prompt",
+      "newline": true,
       "segments": [
         {
           "foreground": "#00d0ff",

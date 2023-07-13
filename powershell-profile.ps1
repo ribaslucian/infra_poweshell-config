@@ -28,6 +28,10 @@ function kc {
     kubectl config get-contexts
 }
 
+# Function grep($pattern, $path) {
+#     Get-Content $path | Where-Object { $_ -match $pattern -and $_ -cmatch $pattern }
+# }
+
 Set-Alias vim nvim
 Set-Alias g git
 Set-Alias grep findstr
