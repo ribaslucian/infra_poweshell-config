@@ -28,10 +28,6 @@ function kc {
     kubectl config get-contexts
 }
 
-# Function grep($pattern, $path) {
-#     Get-Content $path | Where-Object { $_ -match $pattern -and $_ -cmatch $pattern }
-# }
-
 
 Set-Alias g git
 function gs { git status }
@@ -48,13 +44,13 @@ Set-Alias l ls
 Set-Alias vim nvim
 Set-Alias grep findstr
 Set-Alias k kubectl
-Set-Alias tig "C:\Program Files\Git\bin\tig.exe"
+Set-Alias tig "C:\Program Files\Git\usr\bin\tig.exe"
 Set-Alias tail "C:\Program Files\Git\usr\bin\less.exe"
 # Set-Alias tig "C:\TIC\.sources\Git\usr\bin\tig.exe"
 # Set-Alias tail "C:\TIC\.sources\Git\usr\bin\less.exe" 
 
 
-oh-my-posh init pwsh --config 'C:\TIC\env\poweshell-config\oh-my-posh-theme.json' | Invoke-Expression
+oh-my-posh init pwsh --config 'C:\TIC\env\my-env-configs\oh-my-posh-theme.json' | Invoke-Expression
 
 
 function ./ {
