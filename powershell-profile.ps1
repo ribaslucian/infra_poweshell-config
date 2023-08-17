@@ -14,6 +14,7 @@ Set-PSReadLineKeyHandler -Key DownArrow -Function HistorySearchForward
 Set-PSReadLineOption -Colors @{ InlinePrediction = '#875f5f'}
 Set-PSReadLineKeyHandler -Chord "Ctrl+RightArrow" -Function ForwardWord
 
+kubectl completion powershell | Out-String | Invoke-Expression
 
 function tc {
     param(
@@ -47,10 +48,10 @@ Set-Alias k kubectl
 Set-Alias tig "C:\Program Files\Git\usr\bin\tig.exe"
 Set-Alias tail "C:\Program Files\Git\usr\bin\less.exe"
 # Set-Alias tig "C:\TIC\.sources\Git\usr\bin\tig.exe"
-# Set-Alias tail "C:\TIC\.sources\Git\usr\bin\less.exe" 
+# Set-Alias tail "C:\TIC\.sources\Git\usr\bin\less.exe"
 
 
-oh-my-posh init pwsh --config 'C:\TIC\env\my-env-configs\oh-my-posh-theme.json' | Invoke-Expression
+oh-my-posh init pwsh --config 'C:\TIC\infra\my-env-configs\oh-my-posh-theme.json' | Invoke-Expression
 
 
 function ./ {
